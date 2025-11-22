@@ -1,17 +1,13 @@
--- WataX Official UI
--- Client-side only (buat SS / tampilan doang)
 
---// Destroy old UI if exists
 if game.CoreGui:FindFirstChild("WataX_UI") then
     game.CoreGui:FindFirstChild("WataX_UI"):Destroy()
 end
 
---// Main GUI
 local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
 ScreenGui.Name = "WataX_UI"
 ScreenGui.ResetOnSpawn = false
 
---// Main Frame
+
 local Frame = Instance.new("Frame", ScreenGui)
 Frame.Size = UDim2.new(0, 350, 0, 200)
 Frame.Position = UDim2.new(0.5, -175, 0.5, -100)
@@ -20,11 +16,11 @@ Frame.BorderSizePixel = 0
 Frame.BackgroundTransparency = 1
 Frame.ClipsDescendants = true
 
--- Corner
+
 local Corner = Instance.new("UICorner", Frame)
 Corner.CornerRadius = UDim.new(0, 15)
 
--- Shadow
+
 local Shadow = Instance.new("ImageLabel", Frame)
 Shadow.Size = UDim2.new(1, 30, 1, 30)
 Shadow.Position = UDim2.new(0, -15, 0, -15)
@@ -33,7 +29,6 @@ Shadow.Image = "rbxassetid://1316045217"
 Shadow.ImageColor3 = Color3.fromRGB(0,0,0)
 Shadow.ImageTransparency = 0.4
 
--- Title Text
 local Title = Instance.new("TextLabel", Frame)
 Title.Text = "Discord Resmi WataX"
 Title.Size = UDim2.new(1, 0, 0, 40)
@@ -43,9 +38,9 @@ Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 22
 
--- Discord Link
+
 local Link = Instance.new("TextLabel", Frame)
-Link.Text = "discord.gg/watax"
+Link.Text = "https://discord.gg/YUpJ6WhmQg"
 Link.Size = UDim2.new(1, 0, 0, 40)
 Link.Position = UDim2.new(0, 0, 0, 50)
 Link.BackgroundTransparency = 1
@@ -53,7 +48,7 @@ Link.TextColor3 = Color3.fromRGB(150, 200, 255)
 Link.Font = Enum.Font.Gotham
 Link.TextSize = 20
 
--- Copy Button
+
 local CopyBtn = Instance.new("TextButton", Frame)
 CopyBtn.Text = "Copy Link"
 CopyBtn.Size = UDim2.new(0, 140, 0, 40)
@@ -64,7 +59,7 @@ CopyBtn.Font = Enum.Font.GothamBold
 CopyBtn.TextSize = 18
 Instance.new("UICorner", CopyBtn).CornerRadius = UDim.new(0, 10)
 
--- Close Button
+
 local CloseBtn = Instance.new("TextButton", Frame)
 CloseBtn.Text = "Close"
 CloseBtn.Size = UDim2.new(0, 140, 0, 40)
@@ -75,26 +70,26 @@ CloseBtn.Font = Enum.Font.GothamBold
 CloseBtn.TextSize = 18
 Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 10)
 
--- Animation
+
 Frame:TweenSize(UDim2.new(0, 350, 0, 200), Enum.EasingDirection.Out, Enum.EasingStyle.Back, 0.4, true)
 game.TweenService:Create(Frame, TweenInfo.new(0.4), {BackgroundTransparency = 0}):Play()
 
--- Copy function
+
 CopyBtn.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/watax")
+    setclipboard("https://discord.gg/YUpJ6WhmQg")
     CopyBtn.Text = "Copied!"
     task.wait(1)
     CopyBtn.Text = "Copy Link"
 end)
 
--- Close UI
+
 CloseBtn.MouseButton1Click:Connect(function()
     Frame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.In, Enum.EasingStyle.Back, 0.3, true)
     task.wait(0.25)
     ScreenGui:Destroy()
 end)
 
--- Drag UI
+
 local UIS = game:GetService("UserInputService")
 local dragging, dragStart, startPos
 
